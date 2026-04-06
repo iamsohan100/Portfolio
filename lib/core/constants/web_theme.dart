@@ -5,9 +5,10 @@ class WebTheme {
   static ThemeData darkTheme = ThemeData(
     colorScheme: ColorScheme.fromSeed(
       brightness: Brightness.dark,
-      seedColor: WebColor.black,
-      primary: WebColor.white,
+      seedColor: WebColor.primaryColor,
+      primary: WebColor.primaryColor,
+      secondary: WebColor.secondaryColor,
     ),
-    scaffoldBackgroundColor: WebColor.black,
+    scaffoldBackgroundColor: WebColor.bgColor,
   );
 }

@@ -18,7 +18,7 @@ class Portfolio extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Portfolio',
-      initialRoute: AppRoutes.homePage,
+      initialRoute: AppRoutes.mainPage,
       getPages: AppPages.routes,
       theme: WebTheme.darkTheme,
       initialBinding: DependencyBinding(),
