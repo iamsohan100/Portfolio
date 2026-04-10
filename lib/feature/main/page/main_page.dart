@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/feature/home/desktop/home_desktop.dart';
 import 'package:my_portfolio/feature/main/widget/desktop/custom_top_bar.dart';
 
 class MainPage extends StatelessWidget {
@@ -11,7 +12,14 @@ class MainPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [CustomTopBar(), Text("Hello World")],
+          children: [
+            CustomTopBar(),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(children: [HomeDesktop()]),
+              ),
+            ),
+          ],
         ),
       ),
     );
