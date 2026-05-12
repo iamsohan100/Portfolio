@@ -10,7 +10,8 @@ class PrimaryButton extends StatelessWidget {
   final Color? borderColor;
   final Widget? icon;
   final double? radius;
-  final double? buttonHeight;
+  final double buttonHeight;
+  final double buttonWidth;
   final Color? fontColor;
   final bool? isShadow;
   final Color? shadowColor;
@@ -26,7 +27,7 @@ class PrimaryButton extends StatelessWidget {
     this.borderColor,
     this.icon,
     this.radius,
-    this.buttonHeight,
+    required this.buttonHeight,
     this.fontColor,
     this.isShadow,
     this.shadowColor,
@@ -34,19 +35,19 @@ class PrimaryButton extends StatelessWidget {
     this.offsetY,
     this.isManjari,
     this.fontSize,
+    required this.buttonWidth,
   });
 
   @override
   Widget build(BuildContext context) {
-    double height = Screen.screenHeight(context);
     double width = Screen.screenWidth(context);
     double scaleFactor = width / Screen.webWidth;
 
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: width,
-        height: height * (buttonHeight ?? 0.055),
+        width: buttonWidth,
+        height: buttonHeight,
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: backgroundColor ?? WebColor.primaryColor,
@@ -55,34 +56,34 @@ class PrimaryButton extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               color: shadowColor ?? WebColor.white,
-              offset: Offset(offsetX ?? 2, offsetY ?? 3),
+              offset: Offset(offsetX ?? 1, offsetY ?? 1.5),
               blurRadius: 0,
             ),
           ],
         ),
         child: icon != null
             ? Row(
-                spacing: width * 0.02,
+                spacing: 12,
                 mainAxisAlignment: .center,
                 crossAxisAlignment: .center,
                 children: [
-                  icon!,
                   if (title != '')
                     CustomText(
                       text: title,
                       textAlign: TextAlign.center,
                       textOverflow: TextOverflow.clip,
-                      fontSize: fontSize ?? 20,
+                      fontSize: fontSize ?? 14,
                       fontWeight: FontWeight.w400,
                       color: fontColor ?? WebColor.white,
                     ),
+                  icon!,
                 ],
               )
             : CustomText(
                 text: title,
                 textAlign: TextAlign.center,
                 textOverflow: TextOverflow.clip,
-                fontSize: fontSize ?? 20,
+                fontSize: fontSize ?? 14,
                 fontWeight: FontWeight.w400,
                 color: fontColor ?? WebColor.white,
               ),
