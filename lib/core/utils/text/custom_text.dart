@@ -38,7 +38,7 @@ class CustomText extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = Screen.screenWidth(context);
     final scaleFactor = width / Screen.webWidth;
-    return Text(
+    final textWidget = Text(
       text,
       maxLines: maxLine,
       overflow: textOverflow ?? TextOverflow.clip,
@@ -50,16 +50,9 @@ class CustomText extends StatelessWidget {
               decorationThickness: 1,
               fontSize: scaleFactor * fontSize,
               fontWeight: fontWeight,
-              color: color,
+              color: isForground == true ? Colors.white : color,
               letterSpacing: letterSpacing ?? 0,
               height: lineHeight,
-              foreground:
-                  isForground == null
-                        ? null
-                        : Paint() // Paint is required for shader
-                    ?..shader = LinearGradient(
-                      colors: [WebColor.primaryColor, WebColor.secondaryColor],
-                    ).createShader(Rect.fromLTWH(180, 0, 50, 0)),
             )
           : GoogleFonts.inter(
               decoration: textDecoration,
@@ -67,14 +60,24 @@ class CustomText extends StatelessWidget {
               decorationThickness: 1,
               fontSize: scaleFactor * fontSize,
               fontWeight: fontWeight,
-              color: color,
+              color: isForground == true ? Colors.white : color,
               letterSpacing: letterSpacing ?? 0,
               height: lineHeight,
-              foreground: isForground == null ? null : Paint()
-                ?..shader = LinearGradient(
-                  colors: [WebColor.primaryColor, WebColor.lightSilver],
-                ).createShader(Rect.fromLTWH(180, 0, 50, 0)),
             ),
     );
+
+    if (isForground == true && color == null) {
+      return ShaderMask(
+        blendMode: BlendMode.srcIn,
+        shaderCallback: (bounds) => LinearGradient(
+          colors: isPoppin == true
+              ? [WebColor.primaryColor, WebColor.secondaryColor]
+              : [WebColor.primaryColor, WebColor.lightSilver],
+        ).createShader(Rect.fromLTWH(0, 0, bounds.width, bounds.height)),
+        child: textWidget,
+      );
+    }
+
+    return textWidget;
   }
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/utils/responsive/sized_box.dart';
+import 'package:portfolio/feature/about/desktop/about_desktop.dart';
 import 'package:portfolio/feature/home/desktop/home_desktop.dart';
 import 'package:portfolio/feature/main/widget/desktop/custom_top_bar.dart';
 
@@ -16,7 +18,9 @@ class MainPage extends StatelessWidget {
             CustomTopBar(),
             Expanded(
               child: SingleChildScrollView(
-                child: Column(children: [HomeDesktop()]),
+                child: Column(
+                  children: [HomeDesktop(), Sh(h: 250), AboutDesktop()],
+                ),
               ),
             ),
           ],
