@@ -19,7 +19,12 @@ class MainPage extends StatelessWidget {
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
-                  children: [HomeDesktop(), Sh(h: 250), AboutDesktop()],
+                  children: [
+                    HomeDesktop(),
+                    Sh(h: 250),
+                    AboutDesktop(),
+                    Sh(h: 50),
+                  ],
                 ),
               ),
             ),
