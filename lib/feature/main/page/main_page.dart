@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/utils/responsive/sized_box.dart';
 import 'package:portfolio/feature/about/desktop/about_desktop.dart';
 import 'package:portfolio/feature/home/desktop/home_desktop.dart';
 import 'package:portfolio/feature/main/widget/desktop/custom_top_bar.dart';
@@ -21,9 +20,9 @@ class MainPage extends StatelessWidget {
                 child: Column(
                   children: [
                     HomeDesktop(),
-                    Sh(h: 250),
+                    SizedBox(height: 250),
                     AboutDesktop(),
-                    Sh(h: 50),
+                    SizedBox(height: 50),
                   ],
                 ),
               ),

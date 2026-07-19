@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/constants/web_color.dart';
-import 'package:portfolio/core/utils/responsive/screen.dart';
 import 'package:portfolio/core/utils/text/custom_text.dart';
 
 class PrimaryButton extends StatelessWidget {
@@ -40,8 +39,7 @@ class PrimaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = Screen.screenWidth(context);
-    double scaleFactor = width / Screen.webWidth;
+
 
     return GestureDetector(
       onTap: onTap,
@@ -51,7 +49,7 @@ class PrimaryButton extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: backgroundColor ?? WebColor.primaryColor,
-          borderRadius: BorderRadius.circular(scaleFactor * (radius ?? 12)),
+          borderRadius: BorderRadius.circular(radius ?? 12),
           border: Border.all(color: borderColor ?? WebColor.white, width: 1),
           boxShadow: [
             BoxShadow(

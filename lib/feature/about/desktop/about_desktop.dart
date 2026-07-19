@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/constants/web_color.dart';
 import 'package:portfolio/core/constants/web_images.dart';
-import 'package:portfolio/core/utils/responsive/screen.dart';
-import 'package:portfolio/core/utils/responsive/sized_box.dart';
 import 'package:portfolio/core/utils/text/custom_text.dart';
 
 class AboutDesktop extends StatelessWidget {
@@ -10,11 +8,11 @@ class AboutDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = Screen.screenWidth(context);
+    // final width = Screen.screenWidth(context);
     // final scaleFactor = width / Screen.webWidth;
 
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: width * 0.15),
+      padding: EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
           CustomText(
@@ -26,9 +24,9 @@ class AboutDesktop extends StatelessWidget {
             color: WebColor.white,
           ),
 
-          Sh(h: 20),
+          SizedBox(height: 20),
           Container(
-            width: width * 0.4,
+            width: 600,
             padding: .symmetric(vertical: 20, horizontal: 24),
             decoration: BoxDecoration(
               color: WebColor.bgColor.withValues(alpha: 0.5),
@@ -39,11 +37,7 @@ class AboutDesktop extends StatelessWidget {
             child: Column(
               crossAxisAlignment: .start,
               mainAxisAlignment: .start,
-              children: [
-                AboutName(),
-                Sh(h: 20),
-                AboutText(),
-              ],
+              children: [AboutName(), SizedBox(height: 20), AboutText()],
             ),
           ),
         ],
@@ -53,9 +47,7 @@ class AboutDesktop extends StatelessWidget {
 }
 
 class AboutName extends StatelessWidget {
-  const AboutName({
-    super.key,
-  });
+  const AboutName({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -71,30 +63,30 @@ class AboutName extends StatelessWidget {
             clipBehavior: .antiAlias,
             width: 73,
             height: 75,
-    
+
             decoration: BoxDecoration(
               color: WebColor.transparent,
-    
+
               borderRadius: .circular(8),
             ),
             child: Image.asset(WebImages.profile, fit: .cover),
           ),
         ),
-        Sw(w: 0.01),
+        SizedBox(width: 14),
         Column(
           crossAxisAlignment: .start,
           children: [
             CustomText(
-              text: "Md. Sabbir Ahmed Sohan",
-              fontSize: 14,
+              text: "Sabbir Ahmed Sohan",
+              fontSize: 18,
               fontWeight: .w600,
               isPoppin: true,
               color: WebColor.lightSilver,
             ),
-            Sh(h: 6),
+            SizedBox(height: 6),
             CustomText(
               text: "iamsohan11@gmail.com",
-              fontSize: 11,
+              fontSize: 13,
               fontWeight: .w400,
               color: WebColor.lightSilver,
             ),
@@ -105,8 +97,6 @@ class AboutName extends StatelessWidget {
   }
 }
 
-
-
 class AboutText extends StatelessWidget {
   const AboutText({super.key});
 
@@ -114,10 +104,10 @@ class AboutText extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomText(
       text:
-          '''I’m a Flutter developer who enjoys building real-world mobile applications that are clean, responsive, and actually useful for people. I mainly work with Flutter, Dart, Firebase, REST API integration, push notifications, deep linking, and modern mobile UI development. I like turning ideas into smooth user experiences while keeping the codebase organized, scalable, and easy to maintain. I enjoy solving problems, improving app performance, and building features that users can genuinely rely on.
+          '''I'm a Flutter developer passionate about building clean, responsive, and user-friendly mobile applications. I work with Flutter, Dart, Firebase, REST APIs, push notifications, deep linking, and modern UI development, focusing on scalable and maintainable code.
 
-I’ve worked on practical projects where deadlines, bug fixing, UI improvements, changing requirements, and deployment challenges are all part of the journey. Along the way, I’ve learned the importance of clear communication, teamwork, and writing maintainable code instead of overcomplicating things. I’m continuously learning and improving my skills with every project, and I always aim to build applications that not only look good but also deliver a smooth and reliable user experience.''',
-      fontSize: 11,
+I enjoy solving real-world problems, improving app performance, and creating smooth user experiences. With experience delivering practical projects, I value clean code, teamwork, and continuous learning to build reliable, high-quality mobile applications.''',
+      fontSize: 14,
       fontWeight: .w300,
       color: WebColor.lightSilver,
     );
