@@ -24,7 +24,7 @@ class AboutDesktop extends StatelessWidget {
             color: WebColor.white,
           ),
 
-          SizedBox(height: 20),
+          SizedBox(height: 40),
           Container(
             width: 600,
             padding: .symmetric(vertical: 20, horizontal: 24),
