@@ -20,7 +20,7 @@ class MainPage extends StatelessWidget {
                 child: Column(
                   children: [
                     HomeDesktop(),
-                    SizedBox(height: 250),
+                    SizedBox(height: 220),
                     AboutDesktop(),
                     SizedBox(height: 50),
                   ],
