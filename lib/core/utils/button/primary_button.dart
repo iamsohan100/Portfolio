@@ -18,6 +18,8 @@ class PrimaryButton extends StatelessWidget {
   final double? offsetY;
   final bool? isManjari;
   final double? fontSize;
+  final double? blurRadius;
+  final double? iconSpace;
   const PrimaryButton({
     super.key,
     this.onTap,
@@ -34,7 +36,7 @@ class PrimaryButton extends StatelessWidget {
     this.offsetY,
     this.isManjari,
     this.fontSize,
-    required this.buttonWidth,
+    required this.buttonWidth, this.blurRadius, this.iconSpace,
   });
 
   @override
@@ -55,13 +57,13 @@ class PrimaryButton extends StatelessWidget {
             BoxShadow(
               color: shadowColor ?? WebColor.white,
               offset: Offset(offsetX ?? 1, offsetY ?? 1.5),
-              blurRadius: 0,
+              blurRadius:blurRadius?? 0,
             ),
           ],
         ),
         child: icon != null
             ? Row(
-                spacing: 12,
+                spacing:iconSpace?? 12,
                 mainAxisAlignment: .center,
                 crossAxisAlignment: .center,
                 children: [

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/core/constants/web_color.dart';
 import 'package:portfolio/core/utils/text/custom_text.dart';
 import 'package:portfolio/feature/about/desktop/widgets/about_name_desktop.dart';
+import 'package:portfolio/feature/about/desktop/widgets/about_social_card_desktop.dart';
 import 'package:portfolio/feature/about/desktop/widgets/about_text_desktop.dart';
 
 class AboutDesktop extends StatelessWidget {
@@ -28,7 +29,7 @@ class AboutDesktop extends StatelessWidget {
           SizedBox(height: 40),
           Container(
             width: 600,
-            height: 320,
+            height: 385,
             padding: .symmetric(vertical: 20, horizontal: 24),
             decoration: BoxDecoration(
               color: WebColor.bgColor.withValues(alpha: 0.5),
@@ -43,6 +44,8 @@ class AboutDesktop extends StatelessWidget {
                 AboutNameDesktop(),
                 SizedBox(height: 20),
                 AboutTextDesktop(),
+                SizedBox(height: 25),
+                AboutSocialCardDesktop(),
               ],
             ),
           ),
