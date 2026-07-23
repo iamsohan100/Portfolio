@@ -4,6 +4,7 @@ import 'package:portfolio/core/utils/text/custom_text.dart';
 import 'package:portfolio/feature/about/desktop/widgets/about_feature_desktop.dart';
 import 'package:portfolio/feature/about/desktop/widgets/about_name_desktop.dart';
 import 'package:portfolio/feature/about/desktop/widgets/about_social_card_desktop.dart';
+import 'package:portfolio/feature/about/desktop/widgets/about_strengths_desktop.dart';
 import 'package:portfolio/feature/about/desktop/widgets/about_text_desktop.dart';
 
 class AboutDesktop extends StatelessWidget {
@@ -67,9 +68,22 @@ class AboutDesktop extends StatelessWidget {
               ),
             ],
           ),
+          SizedBox(height: 35),
+
+          Container(
+            width: 650,
+            height: 200,
+            padding: .symmetric(vertical: 22, horizontal: 24),
+            decoration: BoxDecoration(
+              color: WebColor.bgColor.withValues(alpha: 0.5),
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: WebColor.white24, width: 1),
+            ),
+            alignment: .center,
+            child: AboutStrengthsDesktop(),
+          ),
         ],
       ),
     );
   }
 }
-
