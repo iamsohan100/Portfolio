@@ -6,6 +6,7 @@ class WebColor {
   static const Color secondaryColor = Color(0xFFA76500);
   static const Color white = Color(0xFFFFFFFF);
   static const Color white24 = Colors.white24;
+  static const Color grey = Colors.grey;
   static const Color lightSilver = Color(0xFFE2E2E2);
   static const Color transparent =Colors.transparent;
 }
