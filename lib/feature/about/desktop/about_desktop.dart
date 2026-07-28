@@ -20,6 +20,8 @@ class AboutDesktop extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
+          SizedBox(height: 220),
+
           CustomText(
             text: "ABOUT ME",
             fontSize: 35,
@@ -29,7 +31,7 @@ class AboutDesktop extends StatelessWidget {
             color: WebColor.white,
           ),
 
-          SizedBox(height: 40),
+          SizedBox(height: 45),
           Row(
             mainAxisAlignment: .center,
             spacing: 30,

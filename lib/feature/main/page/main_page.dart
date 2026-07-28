@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/feature/about/desktop/about_desktop.dart';
 import 'package:portfolio/feature/home/desktop/home_desktop.dart';
 import 'package:portfolio/feature/main/widget/desktop/custom_top_bar.dart';
+import 'package:portfolio/feature/skills/desktop/skill_desktop.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -20,9 +21,9 @@ class MainPage extends StatelessWidget {
                 child: Column(
                   children: [
                     HomeDesktop(),
-                    SizedBox(height: 220),
                     AboutDesktop(),
-                    SizedBox(height: 50),
+                    SkillDesktop(),
+                    SizedBox(height: 500),
                   ],
                 ),
               ),
