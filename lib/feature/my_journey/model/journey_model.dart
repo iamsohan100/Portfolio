@@ -15,24 +15,24 @@ const List<JourneyModel> journeyList = [
     year: "2021",
     title: "First Steps",
     description:
-        "At the end of 2021 I started learning HTML and CSS and built small static sites. It was my first real look at how websites work, and it helped me understand that I enjoy creating things on the web.",
+        "At the end of 2021, I started solving problems with Java because I wanted to become an Android developer. After learning Java for a while, I started building Android apps and discovered how mobile apps actually work. That experience made me realize how much I enjoy creating things through apps.",
   ),
   JourneyModel(
     year: "2023",
-    title: "Moving Toward the MERN Stack",
+    title: "Moving Into Flutter Development",
     description:
-        "In mid-2023, I started learning JavaScript, React.js, Next.js and Tailwind CSS through Programming Hero. I also worked with Firebase Authentication and then moved into Node.js, Express, MongoDB, and JWT to understand the full web workflow.",
+        "In mid-2023, I started learning Dart and Flutter through Ostad’s App Development with Flutter course. I also learned REST API integration, state management, Firebase Authentication, push notifications, and Google Maps, which helped me build a strong foundation in Flutter development.",
   ),
   JourneyModel(
     year: "2024",
-    title: "Going Deeper in Programming",
+    title: "Starting my career",
     description:
-        "In 2024, I continued learning through Programming Hero Level 2. I explored TypeScript, Express, Mongoose, Next.js, and Redux and started building more structured and real projects.",
+        "In mid-2024, I started working on mobile apps for a few Bangladeshi freelance clients. This experience boosted my confidence and helped me understand how real-world business products work. Later, from December 2024 to October 2025, I worked remotely as a Junior Flutter Developer at a software company called Code Studio.",
   ),
   JourneyModel(
     year: "2025",
-    title: "Starting my career",
+    title: "2025-Present",
     description:
-        "In December 2024, I joined Spark Tech as a Junior Full Stack Developer. Even though the role is full-stack, most of my work focuses on backend development—API design, server logic, and working closely with the frontend.\n\nIn the middle of 2025, I started taking PostgreSQL and Prisma more seriously. I've been learning how to write better SQL, model data properly, and use Prisma to speed up development. I've also begun working with Docker and AWS to understand hosting, deployments, and real-world backend environments better. I'm currently applying these new technologies in my projects to put what I learn into practice.",
+        "In October 2025, I joined SparkTech Agency as a Junior Flutter Developer. Here, I started working on larger business projects for international clients, which helped me improve my communication skills and understand how to work with global clients. I also had the opportunity to work with and learn many new technologies, which greatly expanded my technical knowledge.",
   ),
 ];

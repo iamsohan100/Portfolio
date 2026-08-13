@@ -28,7 +28,7 @@ class _AboutSecretState extends State<AboutSecretDesktop> {
           child: CustomText(
             key: ValueKey<bool>(_isHovered),
             text: _isHovered
-                ? "I can speak English :)"
+                ? "There are no secrets :)"
                 : "Hover to reveal a secret",
             fontSize: 32,
             fontWeight: FontWeight.w700,
