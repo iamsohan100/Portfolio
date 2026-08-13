@@ -12,7 +12,7 @@ class SkillDesktop extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
-          const SizedBox(height: 70),
+          const SizedBox(height: 140),
           CustomText(
             text: "POWERED BY",
             fontSize: 32,
