@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/constants/web_color.dart';
 import 'package:portfolio/core/utils/text/custom_text.dart';
+import 'package:portfolio/feature/skills/desktop/widgets/powered_by_graph_desktop.dart';
 
 class SkillDesktop extends StatelessWidget {
   const SkillDesktop({super.key});
@@ -8,18 +9,20 @@ class SkillDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
-          SizedBox(height: 120),
+          const SizedBox(height: 70),
           CustomText(
             text: "POWERED BY",
-            fontSize: 35,
+            fontSize: 32,
             fontWeight: FontWeight.w700,
             isPoppin: true,
             isForground: true,
             color: WebColor.white,
           ),
+          const SizedBox(height: 30),
+          const PoweredByGraphDesktop(),
         ],
       ),
     );
