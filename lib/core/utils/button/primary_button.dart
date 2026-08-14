@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/core/constants/web_color.dart';
 import 'package:portfolio/core/utils/text/custom_text.dart';
 import 'package:portfolio/core/utils/widgets/animated_gradient_border.dart';
+import 'package:portfolio/core/utils/widgets/animated_gradient_fill.dart';
 
 class PrimaryButton extends StatelessWidget {
   final VoidCallback? onTap;
@@ -22,6 +23,7 @@ class PrimaryButton extends StatelessWidget {
   final double? blurRadius;
   final double? iconSpace;
   final bool isAnimatedBorder;
+  final bool isAnimatedFill;
   final List<Color>? gradientColors;
   final double? borderWidth;
   final Duration? animationDuration;
@@ -47,6 +49,7 @@ class PrimaryButton extends StatelessWidget {
     this.blurRadius,
     this.iconSpace,
     this.isAnimatedBorder = false,
+    this.isAnimatedFill = false,
     this.gradientColors,
     this.borderWidth,
     this.animationDuration,
@@ -55,57 +58,74 @@ class PrimaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget buttonContent = Container(
-      width: buttonWidth,
-      height: buttonHeight,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        color: backgroundColor ?? WebColor.primaryColor,
-        borderRadius: BorderRadius.circular(radius ?? 14),
-        border: isAnimatedBorder
-            ? null
-            : Border.all(color: borderColor ?? WebColor.white, width: 1),
-        boxShadow: isAnimatedBorder
-            ? null
-            : [
-                BoxShadow(
-                  color: shadowColor ?? WebColor.white,
-                  offset: Offset(offsetX ?? 1, offsetY ?? 1.5),
-                  blurRadius: blurRadius ?? 0,
+    final double effectiveRadius = radius ?? 14;
+
+    Widget innerChild = icon != null
+        ? Row(
+            spacing: iconSpace ?? 12,
+            mainAxisAlignment: .center,
+            crossAxisAlignment: .center,
+            children: [
+              if (title != '')
+                CustomText(
+                  text: title,
+                  textAlign: TextAlign.center,
+                  textOverflow: TextOverflow.clip,
+                  fontSize: fontSize ?? 14,
+                  fontWeight: FontWeight.w500,
+                  color: fontColor ?? WebColor.white,
                 ),
-              ],
-      ),
-      child: icon != null
-          ? Row(
-              spacing: iconSpace ?? 12,
-              mainAxisAlignment: .center,
-              crossAxisAlignment: .center,
-              children: [
-                if (title != '')
-                  CustomText(
-                    text: title,
-                    textAlign: TextAlign.center,
-                    textOverflow: TextOverflow.clip,
-                    fontSize: fontSize ?? 14,
-                    fontWeight: FontWeight.w400,
-                    color: fontColor ?? WebColor.white,
+              icon!,
+            ],
+          )
+        : CustomText(
+            text: title,
+            textAlign: TextAlign.center,
+            textOverflow: TextOverflow.clip,
+            fontSize: fontSize ?? 14,
+            fontWeight: FontWeight.w500,
+            color: fontColor ?? WebColor.white,
+          );
+
+    Widget buttonContent;
+
+    if (isAnimatedFill) {
+      buttonContent = AnimatedGradientFill(
+        width: buttonWidth,
+        height: buttonHeight,
+        borderRadius: effectiveRadius,
+        gradientColors: gradientColors,
+        animationDuration: animationDuration ?? const Duration(seconds: 4),
+        child: innerChild,
+      );
+    } else {
+      buttonContent = Container(
+        width: buttonWidth,
+        height: buttonHeight,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: backgroundColor ?? WebColor.primaryColor,
+          borderRadius: BorderRadius.circular(effectiveRadius),
+          border: isAnimatedBorder
+              ? null
+              : Border.all(color: borderColor ?? WebColor.white, width: 1),
+          boxShadow: isAnimatedBorder
+              ? null
+              : [
+                  BoxShadow(
+                    color: shadowColor ?? WebColor.white,
+                    offset: Offset(offsetX ?? 1, offsetY ?? 1.5),
+                    blurRadius: blurRadius ?? 0,
                   ),
-                icon!,
-              ],
-            )
-          : CustomText(
-              text: title,
-              textAlign: TextAlign.center,
-              textOverflow: TextOverflow.clip,
-              fontSize: fontSize ?? 14,
-              fontWeight: FontWeight.w400,
-              color: fontColor ?? WebColor.white,
-            ),
-    );
+                ],
+        ),
+        child: innerChild,
+      );
+    }
 
     if (isAnimatedBorder) {
       buttonContent = AnimatedGradientBorder(
-        borderRadius: radius ?? 14,
+        borderRadius: effectiveRadius,
         borderWidth: borderWidth ?? 1.0,
         glowRadius: glowRadius ?? 1.0,
         gradientColors: gradientColors,
@@ -114,9 +134,6 @@ class PrimaryButton extends StatelessWidget {
       );
     }
 
-    return GestureDetector(
-      onTap: onTap,
-      child: buttonContent,
-    );
+    return GestureDetector(onTap: onTap, child: buttonContent);
   }
 }

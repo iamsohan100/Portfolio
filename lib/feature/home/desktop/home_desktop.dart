@@ -57,6 +57,7 @@ class HomeDesktop extends StatelessWidget {
                 buttonHeight: 50,
                 fontSize: 16,
                 title: 'View Projects',
+                isAnimatedFill: true,
                 icon: Icon(Icons.auto_awesome_rounded, size: 18),
               ),
             ],
