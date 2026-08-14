@@ -28,17 +28,14 @@ class CertificationsDesktop extends StatelessWidget {
           const SizedBox(height: 14),
 
           // Subtitle
-          const SizedBox(
-            width: 750,
-            child: CustomText(
-              text:
-                  "These certificates are just pieces of paper. Their real value lies in what I can do with the skills they represent.",
-              fontSize: 15.5,
-              fontWeight: FontWeight.w400,
-              color: WebColor.grey,
-              textAlign: TextAlign.center,
-              lineHeight: 1.5,
-            ),
+          CustomText(
+            text:
+                "These certificates are just pieces of paper. Their real value lies in what I can do with the skills they represent.",
+            fontSize: 15.5,
+            fontWeight: FontWeight.w400,
+            color: WebColor.grey,
+            textAlign: TextAlign.center,
+            lineHeight: 1.5,
           ),
           const SizedBox(height: 60),
 
