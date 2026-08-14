@@ -5,6 +5,7 @@ import 'package:portfolio/feature/home/desktop/home_desktop.dart';
 import 'package:portfolio/feature/main/widget/desktop/custom_top_bar.dart';
 import 'package:portfolio/feature/my_journey/controller/my_journey_controller.dart';
 import 'package:portfolio/feature/my_journey/desktop/my_journey_desktop.dart';
+import 'package:portfolio/feature/my_work/desktop/my_work_desktop.dart';
 import 'package:portfolio/feature/skills/desktop/skill_desktop.dart';
 
 class MainPage extends StatelessWidget {
@@ -34,6 +35,7 @@ class MainPage extends StatelessWidget {
                       AboutDesktop(),
                       SkillDesktop(),
                       MyJourneyDesktop(),
+                      MyWorkDesktop(),
                       SizedBox(height: 500),
                     ],
                   ),
