@@ -16,7 +16,7 @@ class AnimatedGradientFill extends StatefulWidget {
     required this.height,
     this.borderRadius = 14,
     this.gradientColors,
-    this.animationDuration = const Duration(seconds: 3),
+    this.animationDuration = const Duration(seconds: 2),
   });
 
   @override
@@ -36,10 +36,7 @@ class _AnimatedGradientFillState extends State<AnimatedGradientFill>
       duration: widget.animationDuration,
     )..repeat(reverse: true);
 
-    _animation = CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeInOut,
-    );
+    _animation = CurvedAnimation(parent: _controller, curve: Curves.easeInOut);
   }
 
   @override
@@ -50,9 +47,10 @@ class _AnimatedGradientFillState extends State<AnimatedGradientFill>
 
   @override
   Widget build(BuildContext context) {
-    final defaultColors = widget.gradientColors ??
+    final defaultColors =
+        widget.gradientColors ??
         [
-          const Color(0xFF531E97),
+          const Color(0xFFB08CFF),
           WebColor.primaryColor,
           const Color(0xFFB08CFF),
         ];
