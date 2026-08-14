@@ -20,10 +20,49 @@ class HomeDesktop extends StatelessWidget {
             isPoppin: true,
             isForground: true,
           ),
-          SizedBox(height: 40),
-          CustomText(
-            text:
-                "Programmer | Building with Flutter, Dart, Rest API, Clean Architecture, MVVM, GetX, Provider | \nCurrently working as a Mobile-App focused Flutter Developer",
+          SizedBox(height: 50),
+          Wrap(
+            alignment: WrapAlignment.center,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            spacing: 8,
+            runSpacing: 10,
+            children: [
+              const CustomText(
+                text: "Programmer | Building with",
+                color: WebColor.lightSilver,
+                fontSize: 20,
+                fontWeight: FontWeight.w300,
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 14,
+                  vertical: 4,
+                ),
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: [WebColor.primaryColor, WebColor.secondaryColor],
+                  ),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: const CustomText(
+                  text: "Flutter, Dart, Rest API,",
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  isPoppin: true,
+                  color: WebColor.white,
+                ),
+              ),
+              const CustomText(
+                text: "Clean Architecture, MVVM, GetX, Provider |",
+                color: WebColor.lightSilver,
+                fontSize: 20,
+                fontWeight: FontWeight.w300,
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          const CustomText(
+            text: "Currently working as a Mobile-App focused Flutter Developer",
             color: WebColor.lightSilver,
             fontSize: 20,
             fontWeight: FontWeight.w300,
