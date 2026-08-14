@@ -30,18 +30,19 @@ class _MyJourneyDesktopState extends State<MyJourneyDesktop> {
   Widget build(BuildContext context) {
     return Padding(
       key: controller.journeyKey,
-      padding:  EdgeInsets.symmetric(horizontal: 40),
+      padding: EdgeInsets.symmetric(horizontal: 20),
       child: Column(
-        children:  [
+        children: [
           SizedBox(height: 140),
-CustomText(
-      text: "ABOUT MY JOURNEY",
-      fontSize: 35,
-      fontWeight: FontWeight.w700,
-      isPoppin: true,
-      isForground: true,
-      color: WebColor.white,
-    ),          SizedBox(height: 60),
+          CustomText(
+            text: "ABOUT MY JOURNEY",
+            fontSize: 35,
+            fontWeight: FontWeight.w700,
+            isPoppin: true,
+            isForground: true,
+            color: WebColor.white,
+          ),
+          SizedBox(height: 60),
           JourneyTimelineDesktop(),
         ],
       ),

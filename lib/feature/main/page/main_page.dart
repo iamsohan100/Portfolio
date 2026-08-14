@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/feature/about/desktop/about_desktop.dart';
+import 'package:portfolio/feature/certificates/desktop/certifications_desktop.dart';
 import 'package:portfolio/feature/home/desktop/home_desktop.dart';
 import 'package:portfolio/feature/main/widget/desktop/custom_top_bar.dart';
 import 'package:portfolio/feature/my_journey/controller/my_journey_controller.dart';
@@ -36,6 +37,7 @@ class MainPage extends StatelessWidget {
                       SkillDesktop(),
                       MyJourneyDesktop(),
                       MyWorkDesktop(),
+                      CertificationsDesktop(),
                       SizedBox(height: 500),
                     ],
                   ),
