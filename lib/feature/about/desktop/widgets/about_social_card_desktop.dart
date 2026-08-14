@@ -22,6 +22,7 @@ class AboutSocialCardDesktop extends StatelessWidget {
           backgroundColor: WebColor.bgColor,
           radius: 10,
           shadowColor: WebColor.primaryColor,
+          isAnimatedBorder: true,
           offsetX: 0,
           offsetY: 0,
           blurRadius: 5,
@@ -34,23 +35,47 @@ class AboutSocialCardDesktop extends StatelessWidget {
   }
 }
 
-Container _socialContainer({required FaIconData icon}) {
-  return Container(
-    width: 40,
-    height: 40,
-    decoration: BoxDecoration(
-      color: WebColor.bgColor.withValues(alpha: 0.5),
-      borderRadius: BorderRadius.circular(8),
-      border: Border.all(color: WebColor.white24, width: 1),
-      boxShadow: [
-        BoxShadow(
-          color: WebColor.primaryColor.withValues(alpha: 0.1),
-          blurRadius: 5,
-          offset: const Offset(0, 2),
+Widget _socialContainer({required FaIconData icon}) {
+  return Stack(
+    alignment: Alignment.bottomCenter,
+    clipBehavior: Clip.none,
+    children: [
+      Container(
+        width: 40,
+        height: 40,
+        decoration: BoxDecoration(
+          color: WebColor.bgColor.withValues(alpha: 0.5),
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(color: WebColor.white24, width: 1),
+          boxShadow: [
+            BoxShadow(
+              color: WebColor.green.withValues(alpha: 0.03),
+              blurRadius: 5,
+              offset: const Offset(0, 2),
+            ),
+          ],
         ),
-      ],
-    ),
-    alignment: .center,
-    child: FaIcon(icon, size: 20, color: WebColor.lightSilver),
+        alignment: Alignment.center,
+        child: FaIcon(icon, size: 20, color: WebColor.lightSilver),
+      ),
+      Positioned(
+        bottom: 0.2,
+        child: Container(
+          width: 3,
+          height: 1,
+          decoration: BoxDecoration(
+            color: WebColor.green.withValues(alpha: 0.9),
+            borderRadius: .circular(2),
+            boxShadow: [
+              BoxShadow(
+                color: WebColor.green.withValues(alpha: 0.7),
+                blurRadius: 5,
+                spreadRadius: 1,
+              ),
+            ],
+          ),
+        ),
+      ),
+    ],
   );
 }

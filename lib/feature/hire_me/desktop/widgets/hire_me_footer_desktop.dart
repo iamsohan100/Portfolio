@@ -8,18 +8,22 @@ class HireMeFooterDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        CustomText(
-          text: '© Copyright ${DateTime.now().year} Sabbir Ahmed Sohan - All rights reserved',
-          fontSize: 14,
-          fontWeight: FontWeight.w400,
-          color: WebColor.lightSilver.withValues(alpha: 0.6),
-        ),
-        const AboutSocialCardDesktop(),
-      ],
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 80),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          CustomText(
+            text:
+                '© Copyright ${DateTime.now().year} Sabbir Ahmed Sohan - All rights reserved',
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+            color: WebColor.lightSilver.withValues(alpha: 0.6),
+          ),
+          const AboutSocialCardDesktop(),
+        ],
+      ),
     );
   }
 }

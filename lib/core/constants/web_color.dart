@@ -9,5 +9,6 @@ class WebColor {
   static const Color grey = Colors.grey;
   static const Color blueGrey = Colors.blue;
   static const Color lightSilver = Color(0xFFE2E2E2);
+  static const Color green = Color(0xFF22C55E);
   static const Color transparent = Colors.transparent;
 }
