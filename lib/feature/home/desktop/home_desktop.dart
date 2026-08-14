@@ -42,6 +42,7 @@ class HomeDesktop extends StatelessWidget {
                 title: 'Learn More',
                 fontSize: 16,
                 backgroundColor: WebColor.bgColor,
+                isAnimatedBorder: true,
                 icon: Transform.rotate(
                   angle: -0.7,
                   child: Padding(
