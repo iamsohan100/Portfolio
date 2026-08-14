@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:portfolio/feature/certificates/controller/certifications_controller.dart';
+import 'package:portfolio/feature/home/controller/home_controller.dart';
 import 'package:portfolio/feature/main/controller/main_controller.dart';
 import 'package:portfolio/feature/my_journey/controller/my_journey_controller.dart';
 import 'package:portfolio/feature/my_work/controller/my_work_controller.dart';
@@ -9,10 +10,12 @@ class DependencyBinding extends Bindings {
   @override
   void dependencies() {
     Get.put(MainController());
+    Get.put(HomeController());
     Get.put(SkillController());
     Get.put(MyJourneyController());
     Get.put(MyWorkController());
     Get.put(CertificationsController());
   }
 }
+
 
