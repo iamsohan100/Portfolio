@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:portfolio/core/constants/web_color.dart';
 import 'package:portfolio/core/utils/text/custom_text.dart';
 import 'package:portfolio/feature/about/desktop/widgets/strength_card_desktop.dart';
@@ -72,6 +73,7 @@ class _InfiniteScrollRowState extends State<InfiniteScrollRow> {
   final ScrollController _scrollController = ScrollController();
   final GlobalKey _setKey = GlobalKey();
   double _singleSetWidth = 0.0;
+  final RxBool _isHovered = false.obs;
 
   @override
   void initState() {
@@ -96,7 +98,10 @@ class _InfiniteScrollRowState extends State<InfiniteScrollRow> {
   }
 
   void _scroll() {
-    if (!mounted || !_scrollController.hasClients || _singleSetWidth == 0.0) {
+    if (!mounted ||
+        !_scrollController.hasClients ||
+        _singleSetWidth == 0.0 ||
+        _isHovered.value) {
       return;
     }
 
@@ -123,6 +128,18 @@ class _InfiniteScrollRowState extends State<InfiniteScrollRow> {
         });
   }
 
+  void _onEnter() {
+    _isHovered.value = true;
+    if (_scrollController.hasClients) {
+      _scrollController.jumpTo(_scrollController.offset);
+    }
+  }
+
+  void _onExit() {
+    _isHovered.value = false;
+    _scroll();
+  }
+
   @override
   void dispose() {
     _scrollController.dispose();
@@ -132,47 +149,52 @@ class _InfiniteScrollRowState extends State<InfiniteScrollRow> {
   @override
   Widget build(BuildContext context) {
     if (widget.children.isEmpty) return const SizedBox.shrink();
-    return SingleChildScrollView(
-      controller: _scrollController,
-      scrollDirection: Axis.horizontal,
-      physics: const NeverScrollableScrollPhysics(),
-      child: Row(
-        children: [
-          Row(
-            key: _setKey,
-            mainAxisSize: MainAxisSize.min,
-            children: widget.children
-                .map(
-                  (w) => Padding(
-                    padding: const EdgeInsets.only(right: 12.0),
-                    child: w,
-                  ),
-                )
-                .toList(),
-          ),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: widget.children
-                .map(
-                  (w) => Padding(
-                    padding: const EdgeInsets.only(right: 12.0),
-                    child: w,
-                  ),
-                )
-                .toList(),
-          ),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: widget.children
-                .map(
-                  (w) => Padding(
-                    padding: const EdgeInsets.only(right: 12.0),
-                    child: w,
-                  ),
-                )
-                .toList(),
-          ),
-        ],
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      onEnter: (_) => _onEnter(),
+      onExit: (_) => _onExit(),
+      child: SingleChildScrollView(
+        controller: _scrollController,
+        scrollDirection: Axis.horizontal,
+        physics: const NeverScrollableScrollPhysics(),
+        child: Row(
+          children: [
+            Row(
+              key: _setKey,
+              mainAxisSize: MainAxisSize.min,
+              children: widget.children
+                  .map(
+                    (w) => Padding(
+                      padding: const EdgeInsets.only(right: 12.0),
+                      child: w,
+                    ),
+                  )
+                  .toList(),
+            ),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: widget.children
+                  .map(
+                    (w) => Padding(
+                      padding: const EdgeInsets.only(right: 12.0),
+                      child: w,
+                    ),
+                  )
+                  .toList(),
+            ),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: widget.children
+                  .map(
+                    (w) => Padding(
+                      padding: const EdgeInsets.only(right: 12.0),
+                      child: w,
+                    ),
+                  )
+                  .toList(),
+            ),
+          ],
+        ),
       ),
     );
   }
