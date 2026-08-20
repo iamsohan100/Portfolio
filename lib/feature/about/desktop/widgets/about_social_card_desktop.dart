@@ -11,9 +11,9 @@ class AboutSocialCardDesktop extends StatelessWidget {
     return Row(
       spacing: 20,
       children: [
-        _socialContainer(icon: FontAwesomeIcons.linkedin),
-        _socialContainer(icon: FontAwesomeIcons.github),
-        _socialContainer(icon: FontAwesomeIcons.xTwitter),
+        _SocialContainer(icon: FontAwesomeIcons.linkedin),
+        _SocialContainer(icon: FontAwesomeIcons.github),
+        _SocialContainer(icon: FontAwesomeIcons.xTwitter),
         PrimaryButton(
           buttonWidth: 150,
           buttonHeight: 40,
@@ -35,47 +35,83 @@ class AboutSocialCardDesktop extends StatelessWidget {
   }
 }
 
-Widget _socialContainer({required FaIconData icon}) {
-  return Stack(
-    alignment: Alignment.bottomCenter,
-    clipBehavior: Clip.none,
-    children: [
-      Container(
-        width: 40,
-        height: 40,
-        decoration: BoxDecoration(
-          color: WebColor.bgColor.withValues(alpha: 0.5),
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: WebColor.white24, width: 1),
-          boxShadow: [
-            BoxShadow(
-              color: WebColor.green.withValues(alpha: 0.03),
-              blurRadius: 5,
-              offset: const Offset(0, 2),
-            ),
-          ],
-        ),
-        alignment: Alignment.center,
-        child: FaIcon(icon, size: 20, color: WebColor.lightSilver),
-      ),
-      Positioned(
-        bottom: 0.2,
-        child: Container(
-          width: 3,
-          height: 1,
-          decoration: BoxDecoration(
-            color: WebColor.green.withValues(alpha: 0.9),
-            borderRadius: .circular(2),
-            boxShadow: [
-              BoxShadow(
-                color: WebColor.green.withValues(alpha: 0.7),
-                blurRadius: 5,
-                spreadRadius: 1,
+class _SocialContainer extends StatefulWidget {
+  final FaIconData icon;
+
+  const _SocialContainer({required this.icon});
+
+  @override
+  State<_SocialContainer> createState() => _SocialContainerState();
+}
+
+class _SocialContainerState extends State<_SocialContainer> {
+  bool _isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      child: Stack(
+        alignment: Alignment.bottomCenter,
+        clipBehavior: Clip.none,
+        children: [
+          Positioned(
+            bottom: 0.2,
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 200),
+              width: _isHovered ? 10 : 3,
+              height: 1,
+              decoration: BoxDecoration(
+                color: WebColor.green.withValues(alpha: _isHovered ? 0.4 : 0.3),
+                borderRadius: .circular(2),
+                boxShadow: [
+                  BoxShadow(
+                    color: WebColor.green.withValues(
+                      alpha: _isHovered ? 0.15 : 0.08,
+                    ),
+                    blurRadius: _isHovered ? 4 : 2,
+                    spreadRadius: _isHovered ? 0.8 : 0.2,
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              color: _isHovered
+                  ? WebColor.green.withValues(alpha: 0.04)
+                  : WebColor.bgColor.withValues(alpha: 0.5),
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(
+                color: _isHovered
+                    ? WebColor.green.withValues(alpha: 0.25)
+                    : WebColor.white24,
+                width: 1,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: WebColor.green.withValues(
+                    alpha: _isHovered ? 0.06 : 0.02,
+                  ),
+                  blurRadius: _isHovered ? 5 : 3,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
+            alignment: Alignment.center,
+            child: FaIcon(
+              widget.icon,
+              size: 20,
+              color: _isHovered ? WebColor.white : WebColor.lightSilver,
+            ),
+          ),
+        ],
       ),
-    ],
-  );
+    );
+  }
 }
