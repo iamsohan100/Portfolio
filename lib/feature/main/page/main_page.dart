@@ -7,6 +7,7 @@ import 'package:portfolio/feature/home/desktop/home_desktop.dart';
 import 'package:portfolio/feature/main/widget/desktop/custom_top_bar.dart';
 import 'package:portfolio/feature/my_journey/controller/my_journey_controller.dart';
 import 'package:portfolio/feature/my_journey/desktop/my_journey_desktop.dart';
+import 'package:portfolio/feature/my_work/controller/my_work_controller.dart';
 import 'package:portfolio/feature/my_work/desktop/my_work_desktop.dart';
 import 'package:portfolio/feature/skills/desktop/skill_desktop.dart';
 
@@ -16,6 +17,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final journeyController = Get.find<MyJourneyController>();
+    final workController = Get.find<MyWorkController>();
 
     return Scaffold(
       body: SafeArea(
@@ -28,6 +30,7 @@ class MainPage extends StatelessWidget {
               child: NotificationListener<ScrollNotification>(
                 onNotification: (scrollNotification) {
                   journeyController.calculateScrollProgress(context);
+                  workController.checkVisibility(context);
                   return false;
                 },
                 child: const SingleChildScrollView(

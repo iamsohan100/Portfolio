@@ -76,7 +76,7 @@ class WorkCardDesktop extends StatelessWidget {
                     child: CustomText(
                       text: work.title,
                       fontSize: 18,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w600,
                       isPoppin: true,
                       color: WebColor.white,
                       maxLine: 1,
@@ -135,21 +135,15 @@ class WorkCardDesktop extends StatelessWidget {
                 text: work.description,
                 fontSize: 13.5,
                 fontWeight: FontWeight.w400,
-                color: WebColor.lightSilver,
+                color: WebColor.grey,
                 maxLine: 2,
                 textOverflow: TextOverflow.ellipsis,
                 lineHeight: 1.5,
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 14),
 
               // Technology Stack Icons & Badges
-              Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children: work.techStack
-                    .map((tech) => WorkTechBadgeDesktop(item: tech))
-                    .toList(),
-              ),
+              TechStackSweeperDesktop(techStack: work.techStack),
             ],
           ),
         ),

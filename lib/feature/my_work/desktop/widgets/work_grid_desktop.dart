@@ -21,7 +21,7 @@ class WorkGridDesktop extends StatelessWidget {
           crossAxisCount: 3,
           crossAxisSpacing: 24,
           mainAxisSpacing: 24,
-          mainAxisExtent: 430,
+          mainAxisExtent: 420,
         ),
         itemBuilder: (context, index) {
           final work = workList[index];
