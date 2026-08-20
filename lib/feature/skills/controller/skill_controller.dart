@@ -9,12 +9,11 @@ class SkillController extends GetxController
   @override
   void onInit() {
     super.onInit();
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1600),
-    )..addListener(() {
-        animationValue.value = animationController.value;
-      });
+    animationController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 3))
+          ..addListener(() {
+            animationValue.value = animationController.value;
+          });
     animationController.repeat();
   }
 
