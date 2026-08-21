@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/constants/web_color.dart';
-import 'package:portfolio/core/utils/text/custom_text.dart';
-import 'package:portfolio/feature/certificates/model/certificate_model.dart';
+import 'package:sohan/core/constants/web_color.dart';
+import 'package:sohan/core/utils/text/custom_text.dart';
+import 'package:sohan/feature/certificates/model/certificate_model.dart';
 
 class CertificateCardItem extends StatefulWidget {
   final CertificateModel certificate;
@@ -42,7 +42,9 @@ class _CertificateCardItemState extends State<CertificateCardItem> {
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withValues(alpha: widget.isFront ? 0.45 : 0.2),
+                color: Colors.black.withValues(
+                  alpha: widget.isFront ? 0.45 : 0.2,
+                ),
                 blurRadius: widget.isFront ? (isHovered ? 25 : 18) : 10,
                 offset: Offset(0, widget.isFront ? (isHovered ? 12 : 8) : 4),
               ),
@@ -64,15 +66,19 @@ class _CertificateCardItemState extends State<CertificateCardItem> {
                   duration: const Duration(milliseconds: 450),
                   switchInCurve: Curves.easeInOut,
                   switchOutCurve: Curves.easeInOut,
-                  transitionBuilder: (Widget child, Animation<double> animation) {
-                    return FadeTransition(
-                      opacity: animation,
-                      child: ScaleTransition(
-                        scale: Tween<double>(begin: 0.96, end: 1.0).animate(animation),
-                        child: child,
-                      ),
-                    );
-                  },
+                  transitionBuilder:
+                      (Widget child, Animation<double> animation) {
+                        return FadeTransition(
+                          opacity: animation,
+                          child: ScaleTransition(
+                            scale: Tween<double>(
+                              begin: 0.96,
+                              end: 1.0,
+                            ).animate(animation),
+                            child: child,
+                          ),
+                        );
+                      },
                   child: Image.asset(
                     cert.imagePath,
                     key: ValueKey<String>(cert.imagePath),

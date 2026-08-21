@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/core/constants/web_color.dart';
-import 'package:portfolio/core/utils/text/custom_text.dart';
-import 'package:portfolio/feature/about/desktop/widgets/strength_card_desktop.dart';
-import 'package:portfolio/feature/about/model/strength_model.dart';
+import 'package:sohan/core/constants/web_color.dart';
+import 'package:sohan/core/utils/text/custom_text.dart';
+import 'package:sohan/feature/about/desktop/widgets/strength_card_desktop.dart';
+import 'package:sohan/feature/about/model/strength_model.dart';
 
 class AboutStrengthsDesktop extends StatelessWidget {
   const AboutStrengthsDesktop({super.key});

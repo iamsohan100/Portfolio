@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/core/constants/web_color.dart';
-import 'package:portfolio/core/utils/text/custom_text.dart';
+import 'package:sohan/core/constants/web_color.dart';
+import 'package:sohan/core/utils/text/custom_text.dart';
 
 class AboutFeatureDesktop extends StatelessWidget {
   const AboutFeatureDesktop({super.key});
@@ -211,10 +211,10 @@ class FeatureCard extends StatelessWidget {
                       CustomText(
                         text: feature.description,
                         fontSize: 14,
-                        fontWeight: FontWeight.w300,
+                        fontWeight: FontWeight.w500,
                         color: isHovered.value
                             ? WebColor.lightSilver
-                            : WebColor.lightSilver.withValues(alpha: 0.8),
+                            : WebColor.iceBlue,
                       ),
                     ],
                   ),
@@ -236,7 +236,9 @@ class FeatureCard extends StatelessWidget {
                       boxShadow: isHovered.value
                           ? [
                               BoxShadow(
-                                color: WebColor.primaryColor.withValues(alpha: 0.8),
+                                color: WebColor.primaryColor.withValues(
+                                  alpha: 0.8,
+                                ),
                                 blurRadius: 8,
                                 spreadRadius: 1,
                               ),

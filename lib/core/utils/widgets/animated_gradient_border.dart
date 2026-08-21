@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/constants/web_color.dart';
+import 'package:sohan/core/constants/web_color.dart';
 
 class AnimatedGradientBorder extends StatefulWidget {
   final Widget child;
@@ -96,10 +96,7 @@ class GradientBorderPainter extends CustomPainter {
     if (size.width == 0 || size.height == 0) return;
 
     final rect = Offset.zero & size;
-    final rrect = RRect.fromRectAndRadius(
-      rect,
-      Radius.circular(borderRadius),
-    );
+    final rrect = RRect.fromRectAndRadius(rect, Radius.circular(borderRadius));
 
     final shader = SweepGradient(
       center: Alignment.center,

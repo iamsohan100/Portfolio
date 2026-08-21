@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/core/constants/web_color.dart';
-import 'package:portfolio/core/utils/text/custom_text.dart';
-import 'package:portfolio/feature/certificates/controller/certifications_controller.dart';
+import 'package:sohan/core/constants/web_color.dart';
+import 'package:sohan/core/utils/text/custom_text.dart';
+import 'package:sohan/feature/certificates/controller/certifications_controller.dart';
 
 class CertificateInfoDesktop extends StatelessWidget {
   const CertificateInfoDesktop({super.key});
@@ -50,9 +50,9 @@ class CertificateInfoDesktop extends StatelessWidget {
                 // Byline / Issuer & Date
                 CustomText(
                   text: "By ${cert.issuer} (${cert.issueDate})",
-                  fontSize: 15,
-                  fontWeight: FontWeight.w400,
-                  color: WebColor.grey,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w300,
+                  color: WebColor.iceBlue,
                 ),
                 const SizedBox(height: 28),
 
@@ -60,8 +60,8 @@ class CertificateInfoDesktop extends StatelessWidget {
                 CustomText(
                   text: cert.description,
                   fontSize: 15.5,
-                  fontWeight: FontWeight.w400,
-                  color: WebColor.lightSilver,
+                  fontWeight: FontWeight.w500,
+                  color: WebColor.iceBlue,
                   lineHeight: 1.65,
                 ),
               ],
@@ -93,10 +93,7 @@ class _NavButton extends StatefulWidget {
   final IconData icon;
   final VoidCallback onPressed;
 
-  const _NavButton({
-    required this.icon,
-    required this.onPressed,
-  });
+  const _NavButton({required this.icon, required this.onPressed});
 
   @override
   State<_NavButton> createState() => _NavButtonState();
@@ -139,11 +136,7 @@ class _NavButtonState extends State<_NavButton> {
                 : [],
           ),
           child: Center(
-            child: Icon(
-              widget.icon,
-              size: 20,
-              color: WebColor.white,
-            ),
+            child: Icon(widget.icon, size: 20, color: WebColor.white),
           ),
         ),
       ),

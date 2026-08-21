@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/constants/web_color.dart';
-import 'package:portfolio/core/utils/text/custom_text.dart';
-import 'package:portfolio/feature/about/desktop/widgets/about_feature_desktop.dart';
-import 'package:portfolio/feature/about/desktop/widgets/about_name_desktop.dart';
-import 'package:portfolio/feature/about/desktop/widgets/about_secret_desktop.dart';
-import 'package:portfolio/feature/about/desktop/widgets/about_social_card_desktop.dart';
-import 'package:portfolio/feature/about/desktop/widgets/about_strengths_desktop.dart';
-import 'package:portfolio/feature/about/desktop/widgets/about_text_desktop.dart';
+import 'package:sohan/core/constants/web_color.dart';
+import 'package:sohan/core/utils/text/custom_text.dart';
+import 'package:sohan/feature/about/desktop/widgets/about_feature_desktop.dart';
+import 'package:sohan/feature/about/desktop/widgets/about_name_desktop.dart';
+import 'package:sohan/feature/about/desktop/widgets/about_secret_desktop.dart';
+import 'package:sohan/feature/about/desktop/widgets/about_social_card_desktop.dart';
+import 'package:sohan/feature/about/desktop/widgets/about_strengths_desktop.dart';
+import 'package:sohan/feature/about/desktop/widgets/about_text_desktop.dart';
 
 class AboutDesktop extends StatelessWidget {
   const AboutDesktop({super.key});

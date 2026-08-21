@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/core/constants/dependency_binding.dart';
-import 'package:portfolio/core/constants/web_theme.dart';
-import 'package:portfolio/route/app_pages.dart';
-import 'package:portfolio/route/app_routes.dart';
+import 'package:sohan/core/constants/dependency_binding.dart';
+import 'package:sohan/core/constants/web_theme.dart';
+import 'package:sohan/route/app_pages.dart';
+import 'package:sohan/route/app_routes.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

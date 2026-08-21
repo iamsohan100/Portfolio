@@ -1,13 +1,21 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/core/constants/web_images.dart';
-import 'package:portfolio/feature/certificates/model/certificate_model.dart';
+import 'package:sohan/core/constants/web_images.dart';
+import 'package:sohan/feature/certificates/model/certificate_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class CertificationsController extends GetxController {
+class CertificationsController extends GetxController
+    with GetSingleTickerProviderStateMixin {
   final currentIndex = 0.obs;
   Timer? _timer;
+  final GlobalKey certKey = GlobalKey();
+  bool _hasAnimated = false;
+
+  late AnimationController animationController;
+  late Animation<double> titleFadeAnimation;
+  late Animation<double> titleScaleAnimation;
+  late Animation<Offset> titleSlideAnimation;
 
   final List<CertificateModel> certificates = [
     CertificateModel(
@@ -38,11 +46,53 @@ class CertificationsController extends GetxController {
   void onInit() {
     super.onInit();
     startAutoSlide();
+
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 750),
+    );
+
+    titleFadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: const Interval(0.0, 0.8, curve: Curves.easeOut),
+      ),
+    );
+
+    titleScaleAnimation = Tween<double>(begin: 0.95, end: 1.0).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: const Interval(0.0, 1.0, curve: Curves.easeOutCubic),
+      ),
+    );
+
+    titleSlideAnimation =
+        Tween<Offset>(begin: const Offset(0.0, 0.2), end: Offset.zero).animate(
+          CurvedAnimation(
+            parent: animationController,
+            curve: const Interval(0.0, 1.0, curve: Curves.easeOutCubic),
+          ),
+        );
+  }
+
+  void checkVisibility(BuildContext context) {
+    if (_hasAnimated) return;
+    final renderBox = certKey.currentContext?.findRenderObject() as RenderBox?;
+    if (renderBox != null && renderBox.hasSize) {
+      final position = renderBox.localToGlobal(Offset.zero);
+      final screenHeight = MediaQuery.of(context).size.height;
+
+      if (position.dy < screenHeight * 0.90) {
+        _hasAnimated = true;
+        animationController.forward(from: 0.0);
+      }
+    }
   }
 
   @override
   void onClose() {
     _timer?.cancel();
+    animationController.dispose();
     super.onClose();
   }
 

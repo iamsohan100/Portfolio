@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/constants/web_color.dart';
+import 'package:sohan/core/constants/web_color.dart';
 
 class JourneyLinePainterDesktop extends CustomPainter {
   final double progress;
@@ -19,11 +19,7 @@ class JourneyLinePainterDesktop extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
 
-    canvas.drawLine(
-      Offset(lineX, startY),
-      Offset(lineX, endY),
-      bgPaint,
-    );
+    canvas.drawLine(Offset(lineX, startY), Offset(lineX, endY), bgPaint);
 
     // Active progress line
     if (progress > 0) {
@@ -56,10 +52,7 @@ class JourneyLinePainterDesktop extends CustomPainter {
         ..shader = LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: const [
-            WebColor.primaryColor,
-            WebColor.secondaryColor,
-          ],
+          colors: const [WebColor.primaryColor, WebColor.secondaryColor],
         ).createShader(Rect.fromLTWH(0, startY, size.width, endY))
         ..strokeWidth = 2.0
         ..style = PaintingStyle.stroke

@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/constants/web_color.dart';
-import 'package:portfolio/core/utils/text/custom_text.dart';
-import 'package:portfolio/feature/certificates/desktop/widgets/certificate_deck_desktop.dart';
-import 'package:portfolio/feature/certificates/desktop/widgets/certificate_info_desktop.dart';
+import 'package:get/get.dart';
+import 'package:sohan/core/constants/web_color.dart';
+import 'package:sohan/core/utils/text/custom_text.dart';
+import 'package:sohan/feature/certificates/controller/certifications_controller.dart';
+import 'package:sohan/feature/certificates/desktop/widgets/certificate_deck_desktop.dart';
+import 'package:sohan/feature/certificates/desktop/widgets/certificate_info_desktop.dart';
 
 class CertificationsDesktop extends StatelessWidget {
   const CertificationsDesktop({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.isRegistered<CertificationsController>()
+        ? Get.find<CertificationsController>()
+        : Get.put(CertificationsController());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      controller.checkVisibility(context);
+    });
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
@@ -16,14 +26,24 @@ class CertificationsDesktop extends StatelessWidget {
         children: [
           const SizedBox(height: 140),
 
-          // Section Title
-          const CustomText(
-            text: "CERTIFICATIONS",
-            fontSize: 35,
-            fontWeight: FontWeight.w700,
-            isPoppin: true,
-            isForground: true,
-            color: WebColor.white,
+          // Section Title with Animation
+          SlideTransition(
+            key: controller.certKey,
+            position: controller.titleSlideAnimation,
+            child: FadeTransition(
+              opacity: controller.titleFadeAnimation,
+              child: ScaleTransition(
+                scale: controller.titleScaleAnimation,
+                child: const CustomText(
+                  text: "CERTIFICATIONS",
+                  fontSize: 35,
+                  fontWeight: FontWeight.w700,
+                  isPoppin: true,
+                  isForground: true,
+                  color: WebColor.white,
+                ),
+              ),
+            ),
           ),
           const SizedBox(height: 14),
 
@@ -33,7 +53,7 @@ class CertificationsDesktop extends StatelessWidget {
                 "These certificates are just pieces of paper. Their real value lies in what I can do with the skills they represent.",
             fontSize: 15.5,
             fontWeight: FontWeight.w400,
-            color: WebColor.grey,
+            color: WebColor.bec,
             textAlign: TextAlign.center,
             lineHeight: 1.5,
           ),
@@ -50,18 +70,13 @@ class CertificationsDesktop extends StatelessWidget {
                   // Left Side: Stacked Certificate Deck
                   Expanded(
                     flex: 11,
-                    child: Center(
-                      child: CertificateDeckDesktop(),
-                    ),
+                    child: Center(child: CertificateDeckDesktop()),
                   ),
 
                   SizedBox(width: 40),
 
                   // Right Side: Selected Certificate Details & Navigation
-                  Expanded(
-                    flex: 10,
-                    child: CertificateInfoDesktop(),
-                  ),
+                  Expanded(flex: 10, child: CertificateInfoDesktop()),
                 ],
               ),
             ),

@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/feature/about/model/star_particle_model.dart';
+import 'package:sohan/feature/about/model/star_particle_model.dart';
 
 class AboutSecretController extends GetxController
     with GetSingleTickerProviderStateMixin {

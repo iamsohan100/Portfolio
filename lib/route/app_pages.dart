@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:portfolio/feature/main/page/main_page.dart';
-import 'package:portfolio/route/app_routes.dart';
+import 'package:sohan/feature/main/page/main_page.dart';
+import 'package:sohan/route/app_routes.dart';
 
 class AppPages {
   static List<GetPage> routes = [

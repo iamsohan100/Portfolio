@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:portfolio/core/constants/web_color.dart';
-import 'package:portfolio/core/utils/button/primary_button.dart';
+import 'package:sohan/core/constants/web_color.dart';
+import 'package:sohan/core/utils/button/primary_button.dart';
 
 class AboutSocialCardDesktop extends StatelessWidget {
   const AboutSocialCardDesktop({super.key});
@@ -61,18 +61,18 @@ class _SocialContainerState extends State<_SocialContainer> {
             bottom: 0.2,
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 200),
-              width: _isHovered ? 10 : 3,
-              height: 1,
+              width: _isHovered ? 10 : 5,
+              height: 2,
               decoration: BoxDecoration(
-                color: WebColor.green.withValues(alpha: _isHovered ? 0.4 : 0.3),
+                color: WebColor.green.withValues(alpha: _isHovered ? 0.4 : 0.7),
                 borderRadius: .circular(2),
                 boxShadow: [
                   BoxShadow(
                     color: WebColor.green.withValues(
-                      alpha: _isHovered ? 0.15 : 0.08,
+                      alpha: _isHovered ? 0.4 : 0.3,
                     ),
-                    blurRadius: _isHovered ? 4 : 2,
-                    spreadRadius: _isHovered ? 0.8 : 0.2,
+                    blurRadius: _isHovered ? 4 : 1,
+                    spreadRadius: _isHovered ? 0.8 : 0.1,
                   ),
                 ],
               ),

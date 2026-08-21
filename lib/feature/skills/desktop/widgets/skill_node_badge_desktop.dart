@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/constants/web_color.dart';
+import 'package:sohan/core/constants/web_color.dart';
 
 class SkillNodeBadgeDesktop extends StatelessWidget {
   final Widget? child;
@@ -37,13 +37,11 @@ class SkillNodeBadgeDesktop extends StatelessWidget {
             spreadRadius: 1,
           ),
         ],
-        border: Border.all(
-          color: const Color(0xFFE5E5E5),
-          width: 1.5,
-        ),
+        border: Border.all(color: const Color(0xFFE5E5E5), width: 1.5),
       ),
       alignment: Alignment.center,
-      child: child ??
+      child:
+          child ??
           (icon != null
               ? Icon(
                   icon,

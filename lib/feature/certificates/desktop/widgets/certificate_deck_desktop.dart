@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/feature/certificates/controller/certifications_controller.dart';
-import 'package:portfolio/feature/certificates/desktop/widgets/certificate_card_item.dart';
+import 'package:sohan/feature/certificates/controller/certifications_controller.dart';
+import 'package:sohan/feature/certificates/desktop/widgets/certificate_card_item.dart';
 
 class CertificateDeckDesktop extends StatelessWidget {
   const CertificateDeckDesktop({super.key});
@@ -24,7 +24,9 @@ class CertificateDeckDesktop extends StatelessWidget {
         if (relA < 0) relA += total;
         int relB = (b - activeIndex) % total;
         if (relB < 0) relB += total;
-        return relB.compareTo(relA); // Descending order: highest relativeIndex first, 0 last
+        return relB.compareTo(
+          relA,
+        ); // Descending order: highest relativeIndex first, 0 last
       });
 
       return SizedBox(
@@ -46,7 +48,9 @@ class CertificateDeckDesktop extends StatelessWidget {
             final double opacity = isFront ? 1.0 : 0.85;
 
             return AnimatedPositioned(
-              key: ValueKey<int>(index), // Preserve element identity for smooth card movement
+              key: ValueKey<int>(
+                index,
+              ), // Preserve element identity for smooth card movement
               duration: const Duration(milliseconds: 450),
               curve: Curves.easeInOutCubic,
               left: 25.0 + translateX,

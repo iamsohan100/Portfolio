@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/constants/web_color.dart';
-import 'package:portfolio/core/utils/text/custom_text.dart';
-import 'package:portfolio/feature/skills/desktop/widgets/powered_by_graph_desktop.dart';
+import 'package:sohan/core/constants/web_color.dart';
+import 'package:sohan/core/utils/text/custom_text.dart';
+import 'package:sohan/feature/skills/desktop/widgets/powered_by_graph_desktop.dart';
 
 class SkillDesktop extends StatelessWidget {
   const SkillDesktop({super.key});

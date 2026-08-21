@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/constants/web_color.dart';
-import 'package:portfolio/core/constants/web_images.dart';
-import 'package:portfolio/core/utils/text/custom_text.dart';
+import 'package:sohan/core/constants/web_color.dart';
+import 'package:sohan/core/constants/web_images.dart';
+import 'package:sohan/core/utils/text/custom_text.dart';
 
 class AboutNameDesktop extends StatelessWidget {
   const AboutNameDesktop({super.key});
@@ -43,9 +43,9 @@ class AboutNameDesktop extends StatelessWidget {
             SizedBox(height: 6),
             CustomText(
               text: "iamsohan11@gmail.com",
-              fontSize: 13,
-              fontWeight: .w400,
-              color: WebColor.lightSilver,
+              fontSize: 14,
+              fontWeight: .w600,
+              color: WebColor.iceBlue,
             ),
           ],
         ),

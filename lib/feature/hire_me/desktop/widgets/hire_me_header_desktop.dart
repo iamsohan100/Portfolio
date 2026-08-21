@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/core/constants/web_color.dart';
-import 'package:portfolio/core/utils/text/custom_text.dart';
-import 'package:portfolio/feature/hire_me/controller/hire_me_controller.dart';
+import 'package:sohan/core/constants/web_color.dart';
+import 'package:sohan/core/utils/text/custom_text.dart';
+import 'package:sohan/feature/hire_me/controller/hire_me_controller.dart';
 
 class HireMeHeaderDesktop extends StatelessWidget {
   const HireMeHeaderDesktop({super.key});
@@ -44,14 +44,13 @@ class HireMeHeaderDesktop extends StatelessWidget {
                 );
               },
               child: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 14,
+                  vertical: 4,
+                ),
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
-                    colors: [
-                      WebColor.primaryColor,
-                      WebColor.secondaryColor,
-                    ],
+                    colors: [WebColor.primaryColor, WebColor.secondaryColor],
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -79,7 +78,7 @@ class HireMeHeaderDesktop extends StatelessWidget {
               "If you want to hire the right talent, get in touch and let's make it happen.",
           fontSize: 16,
           fontWeight: FontWeight.w300,
-          color: WebColor.lightSilver.withValues(alpha: 0.8),
+          color: WebColor.bec,
           textAlign: TextAlign.center,
         ),
       ],

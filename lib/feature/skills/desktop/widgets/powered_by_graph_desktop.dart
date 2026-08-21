@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/core/constants/web_color.dart';
-import 'package:portfolio/core/constants/web_icons.dart';
-import 'package:portfolio/core/constants/web_images.dart';
-import 'package:portfolio/feature/skills/controller/skill_controller.dart';
-import 'package:portfolio/feature/skills/desktop/widgets/skill_graph_painter_desktop.dart';
-import 'package:portfolio/feature/skills/desktop/widgets/skill_node_badge_desktop.dart';
+import 'package:sohan/core/constants/web_color.dart';
+import 'package:sohan/core/constants/web_icons.dart';
+import 'package:sohan/core/constants/web_images.dart';
+import 'package:sohan/feature/skills/controller/skill_controller.dart';
+import 'package:sohan/feature/skills/desktop/widgets/skill_graph_painter_desktop.dart';
+import 'package:sohan/feature/skills/desktop/widgets/skill_node_badge_desktop.dart';
 
 class PoweredByGraphDesktop extends StatelessWidget {
   const PoweredByGraphDesktop({super.key});

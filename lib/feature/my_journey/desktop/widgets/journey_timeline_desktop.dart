@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/feature/my_journey/controller/my_journey_controller.dart';
-import 'package:portfolio/feature/my_journey/desktop/widgets/journey_item_desktop.dart';
-import 'package:portfolio/feature/my_journey/desktop/widgets/journey_line_painter_desktop.dart';
-import 'package:portfolio/feature/my_journey/model/journey_model.dart';
+import 'package:sohan/feature/my_journey/controller/my_journey_controller.dart';
+import 'package:sohan/feature/my_journey/desktop/widgets/journey_item_desktop.dart';
+import 'package:sohan/feature/my_journey/desktop/widgets/journey_line_painter_desktop.dart';
+import 'package:sohan/feature/my_journey/model/journey_model.dart';
 
 class JourneyTimelineDesktop extends StatelessWidget {
   const JourneyTimelineDesktop({super.key});
@@ -22,7 +22,7 @@ class JourneyTimelineDesktop extends StatelessWidget {
             // Vertical Line running through the node dots
             Positioned(
               left: 11, // Centered inside the 24px dot container
-              top: 12,  // Starts at middle of first dot
+              top: 12, // Starts at middle of first dot
               bottom: 12, // Ends at middle of last dot
               child: CustomPaint(
                 size: const Size(2, double.infinity),

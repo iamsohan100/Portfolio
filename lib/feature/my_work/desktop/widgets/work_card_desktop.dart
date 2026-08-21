@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/core/constants/web_color.dart';
-import 'package:portfolio/core/constants/web_icons.dart';
-import 'package:portfolio/core/utils/text/custom_text.dart';
-import 'package:portfolio/feature/my_work/desktop/widgets/work_tech_badge_desktop.dart';
-import 'package:portfolio/feature/my_work/model/work_model.dart';
+import 'package:sohan/core/constants/web_color.dart';
+import 'package:sohan/core/constants/web_icons.dart';
+import 'package:sohan/core/utils/text/custom_text.dart';
+import 'package:sohan/feature/my_work/desktop/widgets/work_tech_badge_desktop.dart';
+import 'package:sohan/feature/my_work/model/work_model.dart';
 
 class WorkCardDesktop extends StatelessWidget {
   final WorkModel work;

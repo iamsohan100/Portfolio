@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/core/constants/web_color.dart';
-import 'package:portfolio/core/utils/button/custom_text_button.dart';
-import 'package:portfolio/feature/main/controller/main_controller.dart';
+import 'package:sohan/core/constants/web_color.dart';
+import 'package:sohan/core/utils/button/custom_text_button.dart';
+import 'package:sohan/feature/main/controller/main_controller.dart';
 
 class CustomTopBar extends StatelessWidget {
   const CustomTopBar({super.key});

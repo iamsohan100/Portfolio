@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/feature/my_work/controller/my_work_controller.dart';
-import 'package:portfolio/feature/my_work/desktop/widgets/work_card_desktop.dart';
-import 'package:portfolio/feature/my_work/model/work_model.dart';
+import 'package:sohan/feature/my_work/controller/my_work_controller.dart';
+import 'package:sohan/feature/my_work/desktop/widgets/work_card_desktop.dart';
+import 'package:sohan/feature/my_work/model/work_model.dart';
 
 class WorkGridDesktop extends StatelessWidget {
   const WorkGridDesktop({super.key});

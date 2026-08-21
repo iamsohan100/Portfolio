@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/constants/web_icons.dart';
+import 'package:sohan/core/constants/web_icons.dart';
 
 class TechItem {
   final String? label;

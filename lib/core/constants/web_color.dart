@@ -15,5 +15,6 @@ class WebColor {
   static const Color badgeBg = Color(0xFF222226);
   static const Color badgeCardHoverBg = Color(0xFF282830);
   static const Color badgeHoverBg = Color(0xFF2E2E38);
+  static const Color iceBlue = Color(0xFFA7AAC2);
   static const Color transparent = Colors.transparent;
 }

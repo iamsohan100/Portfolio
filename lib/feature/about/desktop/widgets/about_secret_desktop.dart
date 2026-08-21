@@ -1,10 +1,10 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/core/constants/web_color.dart';
-import 'package:portfolio/core/utils/text/custom_text.dart';
-import 'package:portfolio/feature/about/controller/about_secret_controller.dart';
-import 'package:portfolio/feature/about/model/star_particle_model.dart';
+import 'package:sohan/core/constants/web_color.dart';
+import 'package:sohan/core/utils/text/custom_text.dart';
+import 'package:sohan/feature/about/controller/about_secret_controller.dart';
+import 'package:sohan/feature/about/model/star_particle_model.dart';
 
 class AboutSecretDesktop extends StatelessWidget {
   const AboutSecretDesktop({super.key});

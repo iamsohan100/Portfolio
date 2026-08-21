@@ -1,6 +1,6 @@
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/constants/web_color.dart';
+import 'package:sohan/core/constants/web_color.dart';
 
 class SkillGraphPainterDesktop extends CustomPainter {
   final Offset centerOffset;

@@ -15,20 +15,20 @@ class HireMeController extends GetxController
     super.onInit();
     animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 1400),
+      duration: const Duration(milliseconds: 750),
     );
 
     boxWidthAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
         parent: animationController,
-        curve: const Interval(0.35, 0.9, curve: Curves.easeOutCubic),
+        curve: const Interval(0.0, 1.0, curve: Curves.easeOutCubic),
       ),
     );
 
     boxFadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
         parent: animationController,
-        curve: const Interval(0.35, 0.7, curve: Curves.easeOut),
+        curve: const Interval(0.0, 0.7, curve: Curves.easeOut),
       ),
     );
   }
@@ -41,8 +41,7 @@ class HireMeController extends GetxController
       final position = renderBox.localToGlobal(Offset.zero);
       final screenHeight = MediaQuery.of(context).size.height;
 
-      // Trigger animation when the header text is actually visible in lower 75% of viewport
-      if (position.dy > 0 && position.dy < screenHeight * 0.75) {
+      if (position.dy < screenHeight * 0.90) {
         _hasAnimated = true;
         animationController.forward(from: 0.0);
       }

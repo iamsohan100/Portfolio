@@ -17,20 +17,20 @@ class MyWorkController extends GetxController
     super.onInit();
     animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 1400),
+      duration: const Duration(milliseconds: 750),
     );
 
     titleFadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
         parent: animationController,
-        curve: const Interval(0.0, 0.6, curve: Curves.easeOut),
+        curve: const Interval(0.0, 0.8, curve: Curves.easeOut),
       ),
     );
 
     titleScaleAnimation = Tween<double>(begin: 0.95, end: 1.0).animate(
       CurvedAnimation(
         parent: animationController,
-        curve: const Interval(0.0, 0.6, curve: Curves.easeOutCubic),
+        curve: const Interval(0.0, 1.0, curve: Curves.easeOutCubic),
       ),
     );
 
@@ -40,7 +40,7 @@ class MyWorkController extends GetxController
     ).animate(
       CurvedAnimation(
         parent: animationController,
-        curve: const Interval(0.0, 0.6, curve: Curves.easeOutCubic),
+        curve: const Interval(0.0, 1.0, curve: Curves.easeOutCubic),
       ),
     );
   }
@@ -52,7 +52,7 @@ class MyWorkController extends GetxController
       final position = renderBox.localToGlobal(Offset.zero);
       final screenHeight = MediaQuery.of(context).size.height;
 
-      if (position.dy > 0 && position.dy < screenHeight * 0.75) {
+      if (position.dy < screenHeight * 0.90) {
         _hasAnimated = true;
         animationController.forward(from: 0.0);
       }

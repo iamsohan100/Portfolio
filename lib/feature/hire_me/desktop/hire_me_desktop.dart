@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/core/constants/web_color.dart';
-import 'package:portfolio/core/utils/button/primary_button.dart';
-import 'package:portfolio/feature/hire_me/controller/hire_me_controller.dart';
-import 'package:portfolio/feature/hire_me/desktop/widgets/hire_me_footer_desktop.dart';
-import 'package:portfolio/feature/hire_me/desktop/widgets/hire_me_header_desktop.dart';
+import 'package:sohan/core/constants/web_color.dart';
+import 'package:sohan/core/utils/button/primary_button.dart';
+import 'package:sohan/feature/hire_me/controller/hire_me_controller.dart';
+import 'package:sohan/feature/hire_me/desktop/widgets/hire_me_footer_desktop.dart';
+import 'package:sohan/feature/hire_me/desktop/widgets/hire_me_header_desktop.dart';
 
 class HireMeDesktop extends StatelessWidget {
   const HireMeDesktop({super.key});

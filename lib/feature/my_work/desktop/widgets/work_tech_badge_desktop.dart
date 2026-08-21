@@ -1,8 +1,8 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/constants/web_color.dart';
-import 'package:portfolio/core/utils/text/custom_text.dart';
-import 'package:portfolio/feature/my_work/model/work_model.dart';
+import 'package:sohan/core/constants/web_color.dart';
+import 'package:sohan/core/utils/text/custom_text.dart';
+import 'package:sohan/feature/my_work/model/work_model.dart';
 
 /// Wraps tech stack badges with a continuous sweeping light beam and sparkle particles
 class TechStackSweeperDesktop extends StatefulWidget {
@@ -78,7 +78,7 @@ class _TechStackSweeperDesktopState extends State<TechStackSweeperDesktop>
   }
 }
 
-/// Custom painter that renders a glowing vertical light beam with sparkle particle trail matching portfolio theme
+/// Custom painter that renders a glowing vertical light beam with sparkle particle trail matching Sohan theme
 class BeamSparklePainter extends CustomPainter {
   final double progress;
 
@@ -102,7 +102,7 @@ class BeamSparklePainter extends CustomPainter {
     }
 
     if (opacity > 0) {
-      // Theme colors matching portfolio primary (purple) and secondary (amber)
+      // Theme colors matching Sohan primary (purple) and secondary (amber)
       final lineShader = LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,

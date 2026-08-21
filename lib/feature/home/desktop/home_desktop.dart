@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/core/constants/web_color.dart';
-import 'package:portfolio/core/utils/button/primary_button.dart';
-import 'package:portfolio/core/utils/text/custom_text.dart';
-import 'package:portfolio/feature/home/controller/home_controller.dart';
+import 'package:sohan/core/constants/web_color.dart';
+import 'package:sohan/core/utils/button/primary_button.dart';
+import 'package:sohan/core/utils/text/custom_text.dart';
+import 'package:sohan/feature/home/controller/home_controller.dart';
 
 class HomeDesktop extends StatelessWidget {
   const HomeDesktop({super.key});
@@ -136,5 +136,3 @@ class HomeDesktop extends StatelessWidget {
     );
   }
 }
-
-
