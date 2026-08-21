@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/feature/about/desktop/about_desktop.dart';
 import 'package:portfolio/feature/certificates/desktop/certifications_desktop.dart';
+import 'package:portfolio/feature/hire_me/controller/hire_me_controller.dart';
 import 'package:portfolio/feature/hire_me/desktop/hire_me_desktop.dart';
 import 'package:portfolio/feature/home/desktop/home_desktop.dart';
 import 'package:portfolio/feature/main/widget/desktop/custom_top_bar.dart';
@@ -18,6 +19,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final journeyController = Get.find<MyJourneyController>();
     final workController = Get.find<MyWorkController>();
+    final hireMeController = Get.find<HireMeController>();
 
     return Scaffold(
       body: SafeArea(
@@ -31,6 +33,7 @@ class MainPage extends StatelessWidget {
                 onNotification: (scrollNotification) {
                   journeyController.calculateScrollProgress(context);
                   workController.checkVisibility(context);
+                  hireMeController.checkVisibility(context);
                   return false;
                 },
                 child: const SingleChildScrollView(

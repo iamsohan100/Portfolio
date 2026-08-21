@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class MyWorkController extends GetxController
+class HireMeController extends GetxController
     with GetSingleTickerProviderStateMixin {
-  final hoveredCardIndex = (-1).obs;
-  final GlobalKey workKey = GlobalKey();
+  final GlobalKey hireMeKey = GlobalKey();
   bool _hasAnimated = false;
 
   late AnimationController animationController;
-  late Animation<double> titleFadeAnimation;
-  late Animation<double> titleScaleAnimation;
-  late Animation<Offset> titleSlideAnimation;
+  late Animation<double> boxWidthAnimation;
+  late Animation<double> boxFadeAnimation;
 
   @override
   void onInit() {
@@ -20,51 +18,35 @@ class MyWorkController extends GetxController
       duration: const Duration(milliseconds: 1400),
     );
 
-    titleFadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+    boxWidthAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
         parent: animationController,
-        curve: const Interval(0.0, 0.6, curve: Curves.easeOut),
+        curve: const Interval(0.35, 0.9, curve: Curves.easeOutCubic),
       ),
     );
 
-    titleScaleAnimation = Tween<double>(begin: 0.95, end: 1.0).animate(
+    boxFadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
         parent: animationController,
-        curve: const Interval(0.0, 0.6, curve: Curves.easeOutCubic),
-      ),
-    );
-
-    titleSlideAnimation = Tween<Offset>(
-      begin: const Offset(0.0, 0.2),
-      end: Offset.zero,
-    ).animate(
-      CurvedAnimation(
-        parent: animationController,
-        curve: const Interval(0.0, 0.6, curve: Curves.easeOutCubic),
+        curve: const Interval(0.35, 0.7, curve: Curves.easeOut),
       ),
     );
   }
 
   void checkVisibility(BuildContext context) {
     if (_hasAnimated) return;
-    final renderBox = workKey.currentContext?.findRenderObject() as RenderBox?;
+    final renderBox =
+        hireMeKey.currentContext?.findRenderObject() as RenderBox?;
     if (renderBox != null && renderBox.hasSize) {
       final position = renderBox.localToGlobal(Offset.zero);
       final screenHeight = MediaQuery.of(context).size.height;
 
+      // Trigger animation when the header text is actually visible in lower 75% of viewport
       if (position.dy > 0 && position.dy < screenHeight * 0.75) {
         _hasAnimated = true;
         animationController.forward(from: 0.0);
       }
     }
-  }
-
-  void setHoveredIndex(int index) {
-    hoveredCardIndex.value = index;
-  }
-
-  void openLink(String url) {
-    debugPrint("Opening URL: $url");
   }
 
   @override

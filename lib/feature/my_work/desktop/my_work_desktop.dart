@@ -19,12 +19,12 @@ class MyWorkDesktop extends StatelessWidget {
     });
 
     return Padding(
-      key: controller.workKey,
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
           const SizedBox(height: 140),
           SlideTransition(
+            key: controller.workKey,
             position: controller.titleSlideAnimation,
             child: FadeTransition(
               opacity: controller.titleFadeAnimation,

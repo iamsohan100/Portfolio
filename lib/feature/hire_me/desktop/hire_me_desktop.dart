@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:portfolio/core/constants/web_color.dart';
 import 'package:portfolio/core/utils/button/primary_button.dart';
+import 'package:portfolio/feature/hire_me/controller/hire_me_controller.dart';
 import 'package:portfolio/feature/hire_me/desktop/widgets/hire_me_footer_desktop.dart';
 import 'package:portfolio/feature/hire_me/desktop/widgets/hire_me_header_desktop.dart';
 
@@ -9,6 +11,14 @@ class HireMeDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.isRegistered<HireMeController>()
+        ? Get.find<HireMeController>()
+        : Get.put(HireMeController());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      controller.checkVisibility(context);
+    });
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
@@ -28,6 +38,7 @@ class HireMeDesktop extends StatelessWidget {
             offsetY: 0,
             blurRadius: 5,
             borderColor: WebColor.white,
+            isAnimatedBorder: true,
             onTap: () {},
           ),
           const SizedBox(height: 140),

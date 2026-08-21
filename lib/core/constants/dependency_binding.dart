@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:portfolio/feature/certificates/controller/certifications_controller.dart';
+import 'package:portfolio/feature/hire_me/controller/hire_me_controller.dart';
 import 'package:portfolio/feature/home/controller/home_controller.dart';
 import 'package:portfolio/feature/main/controller/main_controller.dart';
 import 'package:portfolio/feature/my_journey/controller/my_journey_controller.dart';
@@ -15,6 +16,7 @@ class DependencyBinding extends Bindings {
     Get.put(MyJourneyController());
     Get.put(MyWorkController());
     Get.put(CertificationsController());
+    Get.put(HireMeController());
   }
 }
 
