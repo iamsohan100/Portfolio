@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:sohan/core/constants/web_color.dart';
 import 'package:sohan/core/utils/text/custom_text.dart';
 import 'package:sohan/feature/about/desktop/widgets/strength_card_desktop.dart';
@@ -69,15 +68,28 @@ class InfiniteScrollRow extends StatefulWidget {
   State<InfiniteScrollRow> createState() => _InfiniteScrollRowState();
 }
 
-class _InfiniteScrollRowState extends State<InfiniteScrollRow> {
+class _InfiniteScrollRowState extends State<InfiniteScrollRow>
+    with SingleTickerProviderStateMixin {
   final ScrollController _scrollController = ScrollController();
   final GlobalKey _setKey = GlobalKey();
+  late final AnimationController _animController;
   double _singleSetWidth = 0.0;
-  final RxBool _isHovered = false.obs;
 
   @override
   void initState() {
     super.initState();
+    _animController = AnimationController(vsync: this);
+
+    _animController.addListener(() {
+      if (_scrollController.hasClients && _singleSetWidth > 0) {
+        final double progress = _animController.value;
+        final double offset = widget.reverse
+            ? (1.0 - progress) * _singleSetWidth
+            : progress * _singleSetWidth;
+        _scrollController.jumpTo(offset);
+      }
+    });
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _calculateWidthAndStart();
     });
@@ -88,60 +100,30 @@ class _InfiniteScrollRowState extends State<InfiniteScrollRow> {
     final context = _setKey.currentContext;
     if (context != null) {
       final box = context.findRenderObject() as RenderBox?;
-      if (box != null) {
-        setState(() {
-          _singleSetWidth = box.size.width;
-        });
-        _scroll();
+      if (box != null && box.size.width > 0) {
+        _singleSetWidth = box.size.width;
+        final durationMs = ((_singleSetWidth / widget.speed) * 1000).toInt();
+        _animController.duration = Duration(milliseconds: durationMs);
+        _animController.repeat();
       }
     }
   }
 
-  void _scroll() {
-    if (!mounted ||
-        !_scrollController.hasClients ||
-        _singleSetWidth == 0.0 ||
-        _isHovered.value) {
-      return;
-    }
-
-    final double targetOffset = widget.reverse ? 0.0 : _singleSetWidth;
-    final double currentOffset = _scrollController.offset;
-    final double distance = (targetOffset - currentOffset).abs();
-
-    if (distance <= 1.0) {
-      _scrollController.jumpTo(widget.reverse ? _singleSetWidth : 0.0);
-      WidgetsBinding.instance.addPostFrameCallback((_) => _scroll());
-      return;
-    }
-
-    final duration = Duration(
-      milliseconds: (distance / widget.speed * 1000).toInt(),
-    );
-
-    _scrollController
-        .animateTo(targetOffset, duration: duration, curve: Curves.linear)
-        .then((_) {
-          if (mounted) {
-            _scroll();
-          }
-        });
-  }
-
   void _onEnter() {
-    _isHovered.value = true;
-    if (_scrollController.hasClients) {
-      _scrollController.jumpTo(_scrollController.offset);
+    if (_animController.isAnimating) {
+      _animController.stop(canceled: false);
     }
   }
 
   void _onExit() {
-    _isHovered.value = false;
-    _scroll();
+    if (!_animController.isAnimating && _singleSetWidth > 0) {
+      _animController.repeat();
+    }
   }
 
   @override
   void dispose() {
+    _animController.dispose();
     _scrollController.dispose();
     super.dispose();
   }
